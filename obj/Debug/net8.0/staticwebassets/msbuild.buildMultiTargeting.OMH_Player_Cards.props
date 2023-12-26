@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\OMH_Player_Cards.props" />
-</Project>
