@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "OMH_Player_Cards.Client",
   "resources": {
-    "hash": "sha256-5rK/ycNvaZAtwXFm82bmLy+8n5MgCF+t7znwFGgvgSA=",
+    "hash": "sha256-2NstCbNJFPO0z2NQk26U9fRcE3G/c2k+EOlory57nGw=",
     "jsModuleNative": {
       "dotnet.native.8.0.0.aeopqf8ihe.js": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI="
     },
@@ -35,12 +35,11 @@
       "Microsoft.Extensions.Primitives.wasm": "sha256-opoh5mb9g1OUt3obpwrrOvmcQ+5UbUJPcBRMoP63AhU=",
       "Microsoft.JSInterop.wasm": "sha256-A3XmytLkxdiHir8YDzGgOQ6KLVnIyAipKBeFNyHrWNc=",
       "Microsoft.JSInterop.WebAssembly.wasm": "sha256-CQVLCKiSxLN5ghyJZG3mhnMGRROdqrbNUjtAXB0nWb8=",
-      "OMH_Player_Cards.Client.wasm": "sha256-WA/fceiZHEvY0mUqloZgbA0V9P+Hv86rmGHoVp12NE0=",
+      "OMH_Player_Cards.Client.wasm": "sha256-zr9RpbCyZ4k1Rmz6rjvbxzApRf7Pdbi6JRQJCPtdiSI=",
       "System.Collections.Concurrent.wasm": "sha256-CG3VREl0BdEHuW2yKDLZrD7qDxuHMa5Bo052joFrB+Q=",
       "System.Collections.NonGeneric.wasm": "sha256-6qwyd7XX7yQqhhlHl8BJvfR8zIJuKrEDYONtz6cFNAY=",
       "System.Collections.Specialized.wasm": "sha256-wriqyx3dTeVbeIgi5SSckpwpazJ9I2smazHWMg2wtv0=",
       "System.Collections.wasm": "sha256-txLh4T/4poFPXzkV1jWcTrf6D2E6YgjFY4kQwoBP8F8=",
-      "System.ComponentModel.Annotations.wasm": "sha256-FTW6AcNcLMDOTs2YpeUsHjp4GwRhkw6XPOM3axTFyIo=",
       "System.ComponentModel.Primitives.wasm": "sha256-bW5fgWc3K3ITnpvkN3hMRkn5J7PxCMe26Ko+KcCNwvs=",
       "System.ComponentModel.TypeConverter.wasm": "sha256-ioqhiqe5wiqZbM3JPEWdu4+gUfy/bUTeF7U1RCM+7vE=",
       "System.ComponentModel.wasm": "sha256-hit5i9iR+DgRmAIS+/EyoBClY0N8JfLdVV8wV5jM1dE=",
