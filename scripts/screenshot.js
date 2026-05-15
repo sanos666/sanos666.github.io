@@ -1,6 +1,12 @@
 function downloadScreenShot(filename) {
-    html2canvas(document.querySelector("#SelectedPlayerInfo")).then(canvas => {
-        saveAs(canvas.toDataURL(), filename + '.png')
+    var element = document.querySelector("#stat-card");
+    html2canvas(element, {
+        backgroundColor: "#1e1e1e",
+        useCORS: true,
+        scale: 2,
+        logging: false
+    }).then(canvas => {
+        saveAs(canvas.toDataURL('image/png'), filename + '.png');
     });
 }
 

@@ -1,80 +1,28 @@
 /* /Layout/MainLayout.razor.rz.scp.css */
-.page[b-187zm7y90g] {
-    position: relative;
+.app-layout[b-187zm7y90g] {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
-main[b-187zm7y90g] {
-    flex: 1;
-}
-
-.sidebar[b-187zm7y90g] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
-}
-
-.top-row[b-187zm7y90g] {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
-    justify-content: flex-end;
-    height: 3.5rem;
+.app-footer[b-187zm7y90g] {
+    background-color: #1a1a1a;
+    color: #aaa;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 1rem 1.5rem;
+    font-size: 0.85rem;
 }
 
-    .top-row[b-187zm7y90g]  a, .top-row[b-187zm7y90g]  .btn-link {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-        text-decoration: none;
-    }
-
-    .top-row[b-187zm7y90g]  a:hover, .top-row[b-187zm7y90g]  .btn-link:hover {
-        text-decoration: underline;
-    }
-
-    .top-row[b-187zm7y90g]  a:first-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-@media (max-width: 640.98px) {
-    .top-row[b-187zm7y90g] {
-        justify-content: space-between;
-    }
-
-    .top-row[b-187zm7y90g]  a, .top-row[b-187zm7y90g]  .btn-link {
-        margin-left: 0;
-    }
+.bmc-link[b-187zm7y90g] {
+    color: #f5a623;
+    text-decoration: none;
+    font-weight: 600;
 }
 
-@media (min-width: 641px) {
-    .page[b-187zm7y90g] {
-        flex-direction: row;
-    }
-
-    .sidebar[b-187zm7y90g] {
-        width: 250px;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-    }
-
-    .top-row[b-187zm7y90g] {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-    }
-
-    .top-row.auth[b-187zm7y90g]  a:first-child {
-        flex: 1;
-        text-align: right;
-        width: 0;
-    }
-
-    .top-row[b-187zm7y90g], article[b-187zm7y90g] {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
-    }
+.bmc-link:hover[b-187zm7y90g] {
+    text-decoration: underline;
 }
 /* /Layout/NavMenu.razor.rz.scp.css */
 .navbar-toggler[b-f854ahou3z] {
