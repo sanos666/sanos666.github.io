@@ -40,6 +40,13 @@
                 window.history.replaceState(null, '', redirect);
             }
         })();
+
+        function focusSearchInput() {
+            setTimeout(function () {
+                var input = document.querySelector('.search-wrapper input');
+                if (input) input.focus();
+            }, 50);
+        }
     </script>
 </body>
 
