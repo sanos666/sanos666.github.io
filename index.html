@@ -28,6 +28,10 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
+    <script type="module">
+        import { hookMatBlazorAutocomplete } from './js/diacritic-search.js';
+        hookMatBlazorAutocomplete();
+    </script>
     <script src="_content/MatBlazor/dist/matBlazor.js"></script>
     <script src="scripts/html2canvas.js"></script>
     <script src="scripts/screenshot.js"></script>
