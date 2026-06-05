@@ -6,31 +6,24 @@ export function normalizeInput(inputElement) {
         return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     };
 
-    // Store original value setter
-    const valueDescriptor = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value');
-
-    // Override the value property setter to normalize on assignment
-    Object.defineProperty(inputElement, 'value', {
-        get() {
-            return valueDescriptor.get.call(this);
-        },
-        set(newValue) {
-            const normalized = normalize(newValue);
-            valueDescriptor.set.call(this, normalized);
-        }
-    });
-
-    // Listen to input events and normalize
+    // Listen to input events and normalize the value
     inputElement.addEventListener('input', (e) => {
         const normalized = normalize(inputElement.value);
         if (normalized !== inputElement.value) {
+            // Update the input value
             inputElement.value = normalized;
+            // Trigger input event for MatBlazor to detect the change
+            inputElement.dispatchEvent(new Event('input', { bubbles: true }));
         }
     });
 
-    // Also listen to keydown to prevent accented characters from being typed
-    inputElement.addEventListener('keydown', (e) => {
-        // Allow normal keys, just normalize on input event
+    // Also normalize on blur to ensure consistency
+    inputElement.addEventListener('blur', (e) => {
+        const normalized = normalize(inputElement.value);
+        if (normalized !== inputElement.value) {
+            inputElement.value = normalized;
+            inputElement.dispatchEvent(new Event('input', { bubbles: true }));
+        }
     });
 }
 
