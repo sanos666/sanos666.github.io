@@ -4,7 +4,9 @@ function downloadScreenShot(filename) {
         backgroundColor: "#1e1e1e",
         useCORS: true,
         scale: 2,
-        logging: false
+        logging: false,
+        scrollX: -window.scrollX,
+        scrollY: -window.scrollY
     }).then(canvas => {
         saveAs(canvas.toDataURL('image/png'), filename + '.png');
     });
