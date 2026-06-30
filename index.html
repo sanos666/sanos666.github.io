@@ -29,8 +29,12 @@
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script type="module">
-        import { hookMatBlazorAutocomplete } from './js/diacritic-search.js';
+        import { hookMatBlazorAutocomplete } from './scripts/diacritic-search.js';
         hookMatBlazorAutocomplete();
+    </script>
+    <script type="module">
+        import { initProgressTooltips } from './scripts/progress-graph.js';
+        initProgressTooltips();
     </script>
     <script src="_content/MatBlazor/dist/matBlazor.js"></script>
     <script src="scripts/html2canvas.js"></script>
