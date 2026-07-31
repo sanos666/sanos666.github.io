@@ -646,4 +646,237 @@ code {
     color: #c02d76;
 }
 
+/* ── Teams Page ── */
+.header-teams-btn {
+    display: inline-block;
+    background: #1e1e1e;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    font-weight: 600;
+    white-space: nowrap;
+    border: 1px solid #333;
+}
+
+.header-teams-btn:hover {
+    background: #2a2a2a;
+}
+
+.teams-page {
+    width: 100%;
+    max-width: 900px;
+}
+
+.teams-title,
+.team-detail-title {
+    color: #fff;
+    margin: 0 0 1.5rem 0;
+}
+
+.teams-loading {
+    color: #bbb;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+.team-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(30, 30, 30, 0.95);
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 1rem;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1rem;
+    transition: background 0.15s, transform 0.15s;
+}
+
+.team-tile:hover {
+    background: rgba(45, 45, 45, 0.95);
+    transform: translateY(-2px);
+}
+
+.team-tile .team-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0;
+}
+
+.team-tile-name {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* ── Team Detail Page ── */
+.team-detail-page {
+    width: 100%;
+    max-width: 720px;
+}
+
+.team-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.team-detail-header .team-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0;
+}
+
+.team-detail-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.team-detail-back {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+}
+
+.season-selector-centered {
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0 auto;
+}
+
+.season-nav-btn {
+    background: #1e1e1e;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 8px;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+}
+
+.season-nav-btn:hover:not(:disabled) {
+    background: #2a2a2a;
+}
+
+.season-nav-btn:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.teams-back-link {
+    color: #9ecbff;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    padding: 0;
+}
+
+.teams-back-link:hover {
+    text-decoration: underline;
+}
+
+.roster-section {
+    margin-bottom: 1.5rem;
+}
+
+.roster-heading {
+    color: #fff;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.35rem;
+    margin: 0 0 0.75rem 0;
+}
+
+.roster-empty {
+    color: #888;
+    font-style: italic;
+    margin: 0.25rem 0;
+}
+
+.player-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: rgba(30, 30, 30, 0.95);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+    margin-bottom: 0.4rem;
+    cursor: pointer;
+    color: #e0e0e0;
+    text-align: left;
+    transition: background 0.15s;
+}
+
+.player-row:hover {
+    background: rgba(45, 45, 45, 0.95);
+}
+
+.player-row-name {
+    font-weight: 600;
+    color: #fff;
+}
+
+.player-row-pos {
+    color: #888;
+    font-weight: 400;
+    font-size: 0.8rem;
+    margin-left: 0.35rem;
+}
+
+.player-row-ratings {
+    display: flex;
+    gap: 0.3rem;
+    flex-shrink: 0;
+}
+
+.player-row-rating {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.2rem;
+    padding: 0.15rem 0.35rem;
+    border-radius: 4px;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.team-player-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+}
+
+@media (max-width: 480px) {
+    .player-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    }
+}
+
 
