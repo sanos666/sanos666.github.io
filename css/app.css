@@ -810,6 +810,13 @@ code {
     margin: 0.25rem 0;
 }
 
+.data-loading {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
 .player-row {
     display: flex;
     align-items: center;
