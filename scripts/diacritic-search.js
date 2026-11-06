@@ -1,54 +1,50 @@
-export function normalizeInput(inputElement) {
-    if (!inputElement) return;
+const normalize = (text) => {
+    if (!text) return '';
+    return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').normalize('NFC');
+};
 
-    const normalize = (text) => {
-        if (!text) return '';
-        return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    };
+let composing = false;
 
-    // Listen to input events and normalize the value
-    inputElement.addEventListener('input', (e) => {
-        const normalized = normalize(inputElement.value);
-        if (normalized !== inputElement.value) {
-            // Update the input value
-            inputElement.value = normalized;
-            // Trigger input event for MatBlazor to detect the change
-            inputElement.dispatchEvent(new Event('input', { bubbles: true }));
-        }
-    });
+function isSearchInput(target) {
+    return target instanceof HTMLInputElement
+        && target.classList.contains('mdc-text-field__input')
+        && target.closest('.header-search') !== null;
+}
 
-    // Also normalize on blur to ensure consistency
-    inputElement.addEventListener('blur', (e) => {
-        const normalized = normalize(inputElement.value);
-        if (normalized !== inputElement.value) {
-            inputElement.value = normalized;
-            inputElement.dispatchEvent(new Event('input', { bubbles: true }));
-        }
-    });
+function normalizeInPlace(input) {
+    const value = input.value;
+    const normalized = normalize(value);
+    if (normalized === value) return;
+
+    const caret = input.selectionStart;
+    const removed = value.length - normalized.length;
+    input.value = normalized;
+    if (caret !== null) {
+        const pos = Math.max(0, caret - removed);
+        try { input.setSelectionRange(pos, pos); } catch { /* unsupported input type */ }
+    }
 }
 
 export function hookMatBlazorAutocomplete() {
-    // Wait for MatBlazor to render its input field
-    const waitForInput = setInterval(() => {
-        const inputs = document.querySelectorAll('.mdc-text-field__input');
-        if (inputs.length > 0) {
-            clearInterval(waitForInput);
-            inputs.forEach(input => {
-                // Only normalize the autocomplete search input in the header
-                if (input.closest('.header-search')) {
-                    normalizeInput(input);
-                }
-            });
-        }
-    }, 100);
+    if (window.__diacriticSearchHooked) return;
+    window.__diacriticSearchHooked = true;
 
-    // Stop waiting after 5 seconds
-    setTimeout(() => clearInterval(waitForInput), 5000);
+    // Delegated capture-phase listeners survive MatBlazor re-renders and run before Blazor reads the value.
+    document.addEventListener('compositionstart', e => {
+        if (isSearchInput(e.target)) composing = true;
+    }, true);
+
+    document.addEventListener('compositionend', e => {
+        if (!isSearchInput(e.target)) return;
+        composing = false;
+        normalizeInPlace(e.target);
+        e.target.dispatchEvent(new Event('input', { bubbles: true }));
+    }, true);
+
+    document.addEventListener('input', e => {
+        if (!isSearchInput(e.target) || composing || e.isComposing) return;
+        normalizeInPlace(e.target);
+    }, true);
 }
 
-// Auto-hook when the DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', hookMatBlazorAutocomplete);
-} else {
-    hookMatBlazorAutocomplete();
-}
+hookMatBlazorAutocomplete();
